@@ -1,0 +1,25 @@
+#include <iostream>
+#include <cstring>
+using namespace std;
+
+int main (){
+    char  str [100];
+    char sequence [4];
+    
+    cout<<"enter the str value  ";
+    cin.getline(str,100);
+    
+    cout<<"enter the sequence  ";
+    cin.getline(sequence,4);
+    //it only contains 3 letters with a backslash 0 
+    
+    int n = strlen(str);
+for (int i=0; i+3<n; i++){
+    if (str[i] == sequence [0] && str[i+1] == sequence[1] && str[i+2] == sequence[2]){
+        cout<<"founded and index no is " << i << "to"<< i+2;
+        break;
+    } 
+}
+  return 0;  
+    
+}
