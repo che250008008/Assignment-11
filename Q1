@@ -1,0 +1,41 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int size = 100;
+    double* sales = new double[size];  // dynamic allocation
+
+   
+    for (int i = 0; i < size; i++) {
+        sales[i] = i * 10.5;  // sample data
+    }
+
+    cout << "Original size: " << size << endl;
+
+    int newSize = 200;
+    double* newSales = new double[newSize];
+
+    for (int i = 0; i < size; i++) {
+        newSales[i] = sales[i];
+    }
+
+
+    for (int i = size; i < newSize; i++) {
+        newSales[i] = 0.0;
+    }
+
+    delete[] sales;
+
+    sales = newSales;
+    size = newSize;
+
+    cout << "Resized array to: " << size << " elements." << endl;
+
+    for (int i = 0; i < 5; i++) {
+        cout << "Sales[" << i << "] = " << sales[i] << endl;
+    }
+
+    delete[] sales;
+
+    return 0;
+}
