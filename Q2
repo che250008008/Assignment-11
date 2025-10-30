@@ -1,0 +1,59 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+struct Student {
+    string name;
+    int age;
+    char gender;
+    string branch;
+};
+
+int main() {
+    // Step 1: Create an array of 100 students
+    int size = 100;
+    Student* students = new Student[size];
+
+    for (int i = 0; i < size; i++) {
+        students[i].name = "Student_" + to_string(i + 1);
+        students[i].age = 18 ;
+        students[i].gender =  'M' ;
+        students[i].branch =  "CHEMICAL" ;
+    }
+
+    cout << "Original array size: " << size << endl;
+
+  
+    int newSize = 200;
+    Student* newStudents = new Student[newSize];
+
+    for (int i = 0; i < size; i++) {
+        newStudents[i] = students[i];
+    }
+
+
+    for (int i = size; i < newSize; i++) {
+        newStudents[i].name = "New_Student_" + to_string(i + 1);
+        newStudents[i].age = 18;
+        newStudents[i].gender = 'M';
+        newStudents[i].branch = "CHEMICAL";
+    }
+
+    delete[] students;
+
+    students = newStudents;
+    size = newSize;
+
+    cout << "Resized array to " << size << " students.\n" << endl;
+
+   
+    for (int i = 0; i < 5; i++) {
+        cout << "Name: " << students[i].name
+           cout  <<  Age: " << students[i].age
+            cout<<  Gender: " << students[i].gender
+              cout<< Branch: " << students[i].branch << endl;
+    }
+
+    delete[] students;
+    return 0;
+}
